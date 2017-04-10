@@ -60,7 +60,11 @@ module.exports = {
     plugins: [
     	new webpack.ProvidePlugin({
     		'autosize': 'autosize',
-    		'bootstrap': 'bootstrap'
+    		'bootstrap': 'bootstrap',
+    		'jQuery': 'jquery',
+            '$': 'jquery',
+            'window.jQuery': 'jquery',
+            'Layzr': 'layzr'
     	})
     ]
 
