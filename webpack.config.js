@@ -1,30 +1,32 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var config = {
+    bowerDir: './vendor/bower_components',
+    npmDir: './node_modules'
+};
 
 module.exports = {
 	//傳入一個檔案或者路徑字串 (別名：路徑)
 	entry: {
 		//共用
-		'all': './resources/js/page',
+		'all': './resources/js/page/all.js',
 		//前台
-		'home': './resources/js/home',
+		'home': './resources/js/page/home.js',
 		//後台
-		'admin': './resources/js/admin',
+		'admin': './resources/js/page/admin.js',
 		//個人資料
-		'profile': './resources/js/profile',
-		//相依套件
-		'vendor': './resources/js/vendor',
+		'profile': './resources/js/page/profile.js',
 		//測試用
-		'test': './resources/js/test',
+		'test': './resources/js/page/test.js',
 	},
 	//輸出位置, laravel 預設讀取public之下目錄
 	output: {
-        path: path.join(__dirname, 'public/js'),
+        path: path.join(__dirname, 'public/js/page'),
         filename: '[name].js',
     },
     module: {
-    	//載入, 解析, 轉譯
+    	//載入, 解析, 轉譯  可以留給laravel elixir 做
     	loaders: [
     		{
 	            //test 值為正規化格式, 要轉譯的路徑, 檔名
@@ -54,7 +56,12 @@ module.exports = {
     resolve: {
     	alias: {
     		'autosize': path.join(__dirname, config.bowerDir + '/autosize/dist/autosize.min.js'),
-    		'bootstrap': path.join(__dirname, config.bowerDir + '/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')
+    		'bootstrap': path.join(__dirname, config.bowerDir + '/jasny-bootstrap/dist/js/jasny-bootstrap.min.js'),
+            'bootstraptooltip': path.join(__dirname, config.bowerDir + '/jquery-validation-bootstrap-tooltip/jquery-validate.bootstrap-tooltip.min.js'),
+            'jquery': path.join(__dirname, config.bowerDir + '/jquery/dist/jquery.min.js'),
+    	    'layzr': path.join(__dirname, config.bowerDir + '/layzr.js/dist/layzr.min.js'),
+            'lazyloadxt': path.join(__dirname, config.bowerDir + '/lazyloadxt/dist/jquery.lazyloadxt.min.js'),
+            'lazyloadxt.bg': path.join(__dirname, config.bowerDir + '/lazyloadxt/dist/jquery.lazyloadxt.bg.js')
     	}
     },
     plugins: [
@@ -68,4 +75,26 @@ module.exports = {
     	})
     ]
 
+};
+
+//css 打包
+module.exports = {
+	//傳入一個檔案或者路徑字串 (別名：路徑)
+	entry: {
+		//共用
+		'all': './resources/css/page/all.css',
+		//前台
+		'home': './resources/css/page/home.css',
+		//後台
+		'admin': './resources/css/page/admin.css',
+		//個人資料
+		'profile': './resources/css/page/profile.css',
+		//測試用
+		'test': './resources/css/page/test.css',
+	},
+	//輸出位置, laravel 預設讀取public之下目錄
+	output: {
+        path: path.join(__dirname, 'public/css/page'),
+        filename: '[name].css',
+    }
 };

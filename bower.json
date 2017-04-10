@@ -10,6 +10,8 @@
     "jquery-twzipcode": "https://github.com/essoduke/jQuery-TWzipcode.git#545539a",
     "jquery-validation": "~1.13.1",
     "jquery-validation-bootstrap-tooltip": "*",
+    "layzr.js": "~1.4.0",
+    "lazyloadxt": "~1.0.5",
     "metisMenu": "~1.1.3",
     "tinymce": "",
     "chosen": "1.5.1",
