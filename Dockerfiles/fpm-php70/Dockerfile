@@ -43,12 +43,12 @@ RUN if [ ${INSTALL_PHPREDIS} = true ]; then \
 # ZipArchive:
 #####################################
 
-ARG INSTALL_ZIP_ARCHIVE=true
-RUN if [ ${INSTALL_ZIP_ARCHIVE} = true ]; then \
-    # Install the zip extension
-    pecl install zip && \
-    docker-php-ext-enable zip \
-;fi
+#ARG INSTALL_ZIP_ARCHIVE=true
+#RUN if [ ${INSTALL_ZIP_ARCHIVE} = true ]; then \
+#    # Install the zip extension
+#    pecl install zip && \
+#    docker-php-ext-enable zip \
+#;fi
 
 
 
